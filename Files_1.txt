@@ -1,0 +1,49 @@
+1. Using the csv Module
+
+The csv module is part of Python’s standard library and allows for basic CSV file reading.
+
+import csv
+
+# Open the CSV file
+with open('data.csv', 'r') as file:
+    reader = csv.reader(file)
+    
+    # Iterate through rows
+    for row in reader:
+        print(row)
+
+        
+> Reading as a Dictionary
+
+If the CSV file has headers, you can read it into a dictionary:
+
+import csv
+
+# Open the CSV file
+with open('data.csv', 'r') as file:
+    reader = csv.DictReader(file)
+    
+    # Iterate through rows
+    for row in reader:
+        print(row)  # Each row is a dictionary
+        
+
+2. Checking File Existence
+Use the os or pathlib module to check if a file exists before reading or writing.
+
+import os
+if os.path.exists('example.txt'):
+    print("File exists.")
+    
+3. Handling Binary Files
+For non-text files (e.g., images, PDFs), use binary mode ('rb', 'wb').
+
+with open('image.png', 'rb') as file:
+    data = file.read()
+    
+4. Working with json
+Python provides built-in libraries for common file formats:
+
+import json
+with open('data.json', 'r') as file:
+    data = json.load(file)
